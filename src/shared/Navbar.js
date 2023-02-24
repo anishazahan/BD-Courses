@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,NavLink } from 'react-router-dom'
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -41,12 +41,21 @@ const Navbar = () => {
                         <ul className="items-center justify-center mx-auto space-y-8 lg:flex lg:space-x-6 lg:space-y-0">
                      
                             
-                            <li className="text-black hover:text-indigo-200">
-                              about
-                            </li>
-                            <li className="text-black hover:text-indigo-200">
-                               home
-                             </li>
+                            <NavLink to='/' className="text-black hover:text-indigo-200 active">
+                              Home
+                            </NavLink>
+                            <NavLink to='/courses' className="text-black hover:text-indigo-200 active">
+                              Courses
+                            </NavLink>
+                            <NavLink to='/blog' className="text-black hover:text-indigo-200 active">
+                              Blog
+                            </NavLink>
+                            <NavLink to='/about' className="text-black hover:text-indigo-200 active">
+                              About Us
+                            </NavLink>
+                            <NavLink to='/contact' className="text-black hover:text-indigo-200 active">
+                              Contact
+                            </NavLink>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden ">
