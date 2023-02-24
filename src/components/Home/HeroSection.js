@@ -5,7 +5,7 @@ import heroImg from "../../img/hero.png"
 const HeroSection = () => {
   return (
     <section>
-        <div className='border-b-1 border-mutant mb-20 shadow-md'>
+        <div className='border-b-1 border-mutant shadow-md'>
     <div className="max-w-7xl mx-auto px-6 lg:pl-5 pb-6">
         <div className="flex flex-col-reverse lg:flex-row items-center">
 
@@ -15,7 +15,7 @@ const HeroSection = () => {
                 <h2 className=' text-[4vh] md:text-[6vh] font-bold mb-[2rem] lg:mb-[4rem]'>Find your Preferred Courses 
                 and Improve your skills. </h2>
                 <div className="search-box mb-[3rem]">
-                <div class="max-w-2xl mx-auto">
+                <div class="max-w-xl mx-auto">
                     <form>   
                     <div class="relative">
                         <input type="search"class="block p-3 pl-8 w-full text-sm text-gray-900 rounded-full border-[2px] border-secondary focus:outline-0 font-medium" placeholder="What do you went to learn today ?" required/>
