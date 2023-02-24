@@ -14,7 +14,10 @@ const Navbar = () => {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 lg:block">
                         <Link href={"/"}>
-                        logo
+                        <div className="flex items-center">
+                         <h2 className='font-semibold text-2xl text-primary first-letter:font-extrabold'>Courses</h2>
+                         <h2 className='text-3xl font-bold text-secondary'>BD</h2>
+                        </div>
                         </Link>
                         <div className="lg:hidden">
                             <button
@@ -74,19 +77,17 @@ const Navbar = () => {
                 </div>
                     </div>
                 </div>
-                <div className="hidden space-x-2 lg:block">
-                    <button
-                     
-                        className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                    >
-                        Sign in
-                    </button>
-                    <button
-                       
-                        className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                    >
-                        Sign up
-                    </button>
+
+          {/* ------------ for large device login btn-------------- */}
+
+
+                <div className="hidden space-x-4 lg:block">
+                <Link to="/" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
+                  Login
+                   </Link>
+                   <Link to="/"  className="px-6 py-[10px] text-white bg-primary font-medium duration-500 shadow hover:text-white hover:bg-secondary ">
+                  SignIn
+                   </Link>
                 </div>
             </div>
         </nav>
