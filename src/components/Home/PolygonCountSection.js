@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "../../pages/Home/home.css"
 
 const PolygonCountSection = () => {
   return (
     <>
-    <section className='bg-primary py-10 my-20'>
+    <section className='pt-12 pb-20 my-20 polygon-style bg-primary'>
 
-        <div className="flex max-w-7xl px-10 lg:px-16 justify-between items-center">
+        <div className="flex flex-col lg:flex-row max-w-7xl px-10 lg:px-16 justify-between items-center space-y-4 lg:space-y-0">
           {/* .........left-content.................. */}
-          <div className="left-content space-y-8">
+          <div className="left-content space-y-8 lg:mt-[-6rem]">
             <h2 className=' text-2xl md:text-3xl text-white font-bold'>Create Your Free Account</h2>
             <h2 className=' text-[17px] text-white font-semibold'>"নিজের সফলতা খুঁজুন!"</h2>
             <div className="">
@@ -18,7 +19,7 @@ const PolygonCountSection = () => {
 
            {/* .........left-content.................. */}
 
-          <div className="right-content space-y-7">
+          <div className="right-content space-y-7 mb-24">
             <h2  className=' text-2xl md:text-3xl text-slate-100 font-bold'>Register Now and Get a
            <br/>50% Discount</h2>
            <h2  className=' text-[17px] text-slate-300 font-semibold'>Get more online courses for your</h2>
