@@ -10,7 +10,7 @@ const Navbar = () => {
     <>
 
 <nav className="w-full bg-white shadow">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex lg:px-8">
+            <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex py-2">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 lg:block">
                         <Link href={"/"}>
@@ -44,19 +44,19 @@ const Navbar = () => {
                         <ul className="items-center justify-center mx-auto space-y-8 lg:flex lg:space-x-6 lg:space-y-0">
                      
                             
-                            <NavLink to='/' className="text-black hover:text-indigo-200 active">
+                            <NavLink to='/' className="text-black hover:text-secondary font-medium text-[16px] active">
                               Home
                             </NavLink>
-                            <NavLink to='/courses' className="text-black hover:text-indigo-200 active">
+                            <NavLink to='/courses' className="text-black hover:text-secondary font-medium text-[16px] active">
                               Courses
                             </NavLink>
-                            <NavLink to='/blog' className="text-black hover:text-indigo-200 active">
+                            <NavLink to='/blog' className="text-black hover:text-secondary font-medium text-[16px] active">
                               Blog
                             </NavLink>
-                            <NavLink to='/about' className="text-black hover:text-indigo-200 active">
+                            <NavLink to='/about' className="text-black hover:text-secondary font-medium text-[16px] active">
                               About Us
                             </NavLink>
-                            <NavLink to='/contact' className="text-black hover:text-indigo-200 active">
+                            <NavLink to='/contact' className="text-black hover:text-secondary font-medium text-[16px] active">
                               Contact
                             </NavLink>
                         </ul>
