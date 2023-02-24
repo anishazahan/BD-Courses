@@ -4,14 +4,14 @@ import heroImg from "../../img/hero.png"
 
 const HeroSection = () => {
   return (
-    <>
-
-    <div className="max-w-7xl mx-auto px-6 lg:pl-5">
+    <section>
+        <div className='border-b-1 border-mutant mb-20 shadow-md'>
+    <div className="max-w-7xl mx-auto px-6 lg:pl-5 pb-6">
         <div className="flex flex-col lg:flex-row items-center">
             <div className="hero-content">
-                <h2 className='text-[6vh] font-bold mb-[4rem]'>Find your Preferred Courses 
+                <h2 className='text-[6vh] font-bold mb-[2rem] lg:mb-[4rem]'>Find your Preferred Courses 
                 and Improve your skills. </h2>
-                <div className="search-box mb-[4rem]">
+                <div className="search-box mb-[2rem] lg:mb-[3rem]">
                 <div class="max-w-2xl mx-auto">
                     <form>   
                     <div class="relative">
@@ -32,7 +32,8 @@ const HeroSection = () => {
     </div>
 
 
-    </>
+    </div>
+    </section>
   )
 }
 
