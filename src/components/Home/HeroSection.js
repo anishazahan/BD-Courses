@@ -15,11 +15,11 @@ const HeroSection = () => {
                 <h2 className=' text-[4vh] md:text-[6vh] font-bold mb-[2rem] lg:mb-[4rem]'>Find your Preferred Courses 
                 and Improve your skills. </h2>
                 <div className="search-box mb-[3rem]">
-                <div class="max-w-xl mx-auto">
+                <div className="max-w-xl mx-auto">
                     <form>   
-                    <div class="relative">
-                        <input type="search"class="block p-3 pl-8 w-full text-sm text-gray-900 rounded-full border-[2px] border-secondary focus:outline-0 font-medium" placeholder="What do you went to learn today ?" required/>
-                        <div class="text-white text-lg font-bold flex absolute inset-y-0 right-0 items-center px-2 mr-3 py-2 bg-secondary rounded-full m-2 pointer-events-none">
+                    <div className="relative">
+                        <input type="search"className="block p-3 pl-8 w-full text-sm text-gray-900 rounded-full border-[2px] border-secondary focus:outline-0 font-medium" placeholder="What do you went to learn today ?" required/>
+                        <div className="text-white text-lg font-bold flex absolute inset-y-0 right-0 items-center px-2 mr-3 py-2 bg-secondary rounded-full m-2 pointer-events-none">
                         <BiSearch></BiSearch>
                         </div>
                     </div>

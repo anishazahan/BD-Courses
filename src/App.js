@@ -6,6 +6,7 @@ import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/contact/Contact";
 import Courses from "./pages/courses/Courses";
 import Home from "./pages/Home/Home";
+import Footer from "./shared/footer/Footer";
 import Navbar from "./shared/Navbar";
 
 
@@ -21,7 +22,7 @@ function App() {
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
     </Routes>
-      
+    <Footer></Footer>
     </>
   );
 }
