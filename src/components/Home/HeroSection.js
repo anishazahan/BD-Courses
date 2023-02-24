@@ -7,11 +7,14 @@ const HeroSection = () => {
     <section>
         <div className='border-b-1 border-mutant mb-20 shadow-md'>
     <div className="max-w-7xl mx-auto px-6 lg:pl-5 pb-6">
-        <div className="flex flex-col lg:flex-row items-center">
-            <div className="hero-content">
-                <h2 className='text-[6vh] font-bold mb-[2rem] lg:mb-[4rem]'>Find your Preferred Courses 
+        <div className="flex flex-col-reverse lg:flex-row items-center">
+
+            {/* ...........content section........... */}
+
+            <div className="hero-content pb-16 lg:pb-0">
+                <h2 className=' text-[4vh] md:text-[6vh] font-bold mb-[2rem] lg:mb-[4rem]'>Find your Preferred Courses 
                 and Improve your skills. </h2>
-                <div className="search-box mb-[2rem] lg:mb-[3rem]">
+                <div className="search-box mb-[3rem]">
                 <div class="max-w-2xl mx-auto">
                     <form>   
                     <div class="relative">
@@ -25,6 +28,10 @@ const HeroSection = () => {
                 </div>
                 <p className='text-sm text-slate-500'>Trending Search : WEB Development, UI & UX Design, Marketing.</p>
             </div>
+
+               {/* ...........img section........... */}
+
+
             <div className="hero-img-content">
                 <img src={heroImg} alt="" />
             </div>

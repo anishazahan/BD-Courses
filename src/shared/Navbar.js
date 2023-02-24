@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <>
 
-<nav className="w-full bg-white shadow">
+<nav className="w-full bg-white ">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex py-2">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 lg:block">
@@ -41,7 +41,7 @@ const Navbar = () => {
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="items-center justify-center mx-auto space-y-8 lg:flex lg:space-x-6 lg:space-y-0">
+                        <ul className="items-center justify-center mx-auto space-y-8 flex-col bg-mutant lg:bg-white lg:flex lg:space-x-6 lg:space-y-0">
                      
                             
                             <NavLink to='/' className="text-black hover:text-secondary font-medium text-[16px] active">
