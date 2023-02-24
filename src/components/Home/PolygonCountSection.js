@@ -7,7 +7,7 @@ const PolygonCountSection = () => {
     <>
     <section className='pt-12 pb-20 my-20 polygon-style bg-primary'>
 
-        <div className="flex flex-col lg:flex-row max-w-7xl px-10 lg:px-16 justify-between items-center space-y-4 lg:space-y-0">
+        <div className="flex flex-col lg:flex-row max-w-7xl px-10 lg:px-16 justify-between items-center space-y-8 lg:space-y-0 mx-auto">
           {/* .........left-content.................. */}
           <div className="left-content space-y-8 lg:mt-[-6rem]">
             <h2 className=' text-2xl md:text-3xl text-white font-bold'>Create Your Free Account</h2>
@@ -19,7 +19,7 @@ const PolygonCountSection = () => {
 
            {/* .........left-content.................. */}
 
-          <div className="right-content space-y-7 mb-24">
+          <div className="right-content space-y-7 pb-36  lg:mb-24 ">
             <h2  className=' text-2xl md:text-3xl text-slate-100 font-bold'>Register Now and Get a
            <br/>50% Discount</h2>
            <h2  className=' text-[17px] text-slate-300 font-semibold'>Get more online courses for your</h2>
