@@ -37,11 +37,11 @@ const Navbar = () => {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-center items-center w-full pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 ${
+                        className={`flex-1 justify-center items-center w-full pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 bg-mutant lg:bg-white ${
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="items-center justify-center mx-auto space-y-8 flex-col bg-mutant lg:bg-white lg:flex lg:space-x-6 lg:space-y-0">
+                        <ul className="items-center justify-center mx-auto space-y-8 flex flex-col  lg:flex-row lg:space-x-6 lg:space-y-0 py-6 lg:py-0">
                      
                             
                             <NavLink to='/' className="text-black hover:text-secondary font-medium text-[16px] active">
