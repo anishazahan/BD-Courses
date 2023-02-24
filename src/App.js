@@ -1,27 +1,21 @@
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+
+import { Route, Routes } from "react-router-dom";
 import Courses from "./pages/courses/Courses";
 import Home from "./pages/Home/Home";
+import Navbar from "./shared/Navbar";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home></Home>,
-  },
-  {
-    path: "/courses",
-    element: <Courses></Courses>,
-  },
-]);
 
 
 function App() {
   return (
     <>
-       <RouterProvider router={router} /> 
+    <Navbar></Navbar>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Courses/>}/>
+    </Routes>
+      
     </>
   );
 }
