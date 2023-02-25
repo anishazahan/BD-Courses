@@ -25,6 +25,18 @@ const Courses = () => {
             </div>
         </div>
 
+         {/* ...........courses ............... */}
+
+          <div className="courses">
+        
+            <div className="grid md:grid-col-2 lg:grid-col-3 gap-3 mx-auto">
+                
+            </div>
+
+          </div>
+
+
+
     </section>
 
 
