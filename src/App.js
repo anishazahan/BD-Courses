@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/contact/Contact";
-import Courses from "./pages/courses/Courses";
+import MainCoursePage from "./pages/courses/MainCoursePage";
 import Home from "./pages/Home/Home";
 import Footer from "./shared/footer/Footer";
 import Navbar from "./shared/Navbar";
@@ -17,7 +17,7 @@ function App() {
     <Navbar></Navbar>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/courses' element={<Courses/>}/>
+      <Route path='/courses' element={<MainCoursePage/>}/>
       <Route path='/blog' element={<Blog/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
