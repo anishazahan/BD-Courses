@@ -54,7 +54,7 @@ const Courses = () => {
 
           <div className="courses">
         
-            <div className="grid md:grid-col-2 lg:grid-col-3 gap-3 mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto">
                 {
                     data.map(course=><CourseCard key={course.id} {...course}></CourseCard>)
                 }
