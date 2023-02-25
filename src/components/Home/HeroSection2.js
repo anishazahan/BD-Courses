@@ -6,8 +6,8 @@ import HeroImg from "../../img/hero.jpg"
 const HeroSection2 = () => {
   return (
     <section className='mb-20'>
-        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
-            <div className="flex justify-between items-center lg:space-x-4">
+        <div className="max-w-7xl mx-auto px-10 lg:px-16">
+            <div className="flex lg:flex-row flex-col-reverse justify-between items-center lg:space-x-4 ">
                 <div className="left">
                     <h2 className='text-2xl font-bold'>তোমার লক্ষ্য <span className='text-2xl font-bold text-secondary'>অর্জন </span> কর</h2>
                     <h2 className='text-2xl font-bold mt-2'>আমাদের  <span className='text-2xl font-bold text-secondary'>সাথে...</span></h2>
@@ -27,7 +27,8 @@ const HeroSection2 = () => {
                     <CommonBtn props={"Apply Now"}></CommonBtn>
                     </div>
                 </div>
-                <div className="right w-full">
+
+                <div className="right w-full mb-16 lg:mb-0">
                     <img className='rounded-full h-[450px] lg:w-[450px] w-full object-cover  border-2 border-secondary' src={HeroImg} alt="" />
                 </div>
             </div>
