@@ -3,7 +3,7 @@ import { actionTypes } from "./actionType"
 
 export const initialState = {
     loading: false,
-    products: [],
+    data: [],
     error: false,
     
 }
@@ -22,7 +22,7 @@ export const AllReducer = (state, action) =>{
             return {
                 ...state,
                 loading: false,
-                products: action.payload,
+                data: action.payload,
                 error: false
             }
         }
@@ -34,7 +34,9 @@ export const AllReducer = (state, action) =>{
             }
         }
     
-        default: { return state }
+        default:
+            
+        return state;
 
            
     }

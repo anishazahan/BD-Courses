@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../pages/Home/home.css"
 
-const PolygonCountSection = () => {
+const PolygonCountSection = ({props}) => {
   return (
     <>
-    <section className='pt-12 pb-20 my-20 polygon-style bg-primary'>
+    <section className={`pt-12 pb-20 my-20 polygon-style bg-primary ${props}`}>
 
         <div className="flex flex-col lg:flex-row max-w-7xl px-10 lg:px-16 justify-between items-center space-y-8 lg:space-y-0 mx-auto">
           {/* .........left-content.................. */}

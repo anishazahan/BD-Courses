@@ -9,7 +9,7 @@ const Home = () => {
    <>
    <HeroSection></HeroSection>
    <Courses></Courses>
-   <PolygonCountSection></PolygonCountSection>
+   <PolygonCountSection props={"bg-primary"}></PolygonCountSection>
    <HeroSection2></HeroSection2>
    </>
   )

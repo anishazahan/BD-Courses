@@ -1,15 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import moment from 'moment/moment.js'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import {getData, useAllContext} from "../../Context-Api/AllContext.js"
+import {useAllContext} from "../../Context-Api/AllContext.js"
+import CourseCard from './CourseCard.js'
 
 const Courses = () => {
-    const {value}=useAllContext();
-    // console.log(value);
+    const {getData,data}=useAllContext();
+    const api = "courses.json"
+    useEffect(() => {
+        getData(api);
+      }, []);
+    //   console.log(data)
 
-    
-    // useEffect(() => {
-    //     getData(api);
-    //   }, []);
+
+
+
+
+
+
+
+
+
+    //   const today = moment().format();
+    //    const now = moment(today);
+    // const month = moment(event.date, 'YYY-MM-DD').format('MMMM') 
+    // const day = moment(event.date, 'YYY-MM-DD').format('DD')
+    //  const minutes = now.diff(event.date, 'minutes') 
+     // console.log(now); const eventRemaining = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); console.log(eventRemaining);
 
 
   return (
@@ -38,7 +55,9 @@ const Courses = () => {
           <div className="courses">
         
             <div className="grid md:grid-col-2 lg:grid-col-3 gap-3 mx-auto">
-                
+                {
+                    data.map(course=><CourseCard key={course.id} {...course}></CourseCard>)
+                }
             </div>
 
           </div>

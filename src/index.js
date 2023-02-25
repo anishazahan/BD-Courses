@@ -5,15 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import AllContext from "./Context-Api/AllContext"
-// import {CourseContext} from "./Context-Api/CourseContext"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AllContext>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
     </AllContext>
   </React.StrictMode>
 );
