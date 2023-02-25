@@ -4,15 +4,15 @@ import { useAllContext } from '../../Context-Api/AllContext';
 
 const CourseDetails = () => {
     const {title}= useParams();
-    console.log(title)
+    // console.log(title)
 
-    const {getData,data}=useAllContext();
-
+    const {getSingleData}=useAllContext();
+    // console.log(getSingleData);
     const api = "courses.json"
 
     useEffect(() => {
-        getData(`${api}/${title}`);
-        console.log(data);
+        getSingleData(`${api}/${title}`);
+       
       }, []);
      
   return (

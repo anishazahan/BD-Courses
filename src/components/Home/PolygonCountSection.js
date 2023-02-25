@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "../../pages/Home/home.css"
+import "../../components/Home/home.css"
 
 const PolygonCountSection = ({props}) => {
   return (

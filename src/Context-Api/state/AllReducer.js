@@ -38,11 +38,28 @@ export const AllReducer = (state, action) =>{
             }
         }
 
-        case actionTypes.FETCHING_START: {
+        case actionTypes.SINGLE_FETCHING_START: {
             return {
                 ...state,
-                loading: true,
-                error: false
+                singleLoading: true,
+                singleError: false
+            }
+        }
+
+        case actionTypes.SINGLE_FETCHING_SUCCESS: {
+            return {
+                ...state,
+                singleLoading: false,
+                singleData: action.payload,
+                singleError: false
+            }
+        }
+
+        case actionTypes.SINGLE_FETCHING_ERROR: {
+            return {
+                ...state,
+                singleLoading: false,
+                singleError: true
             }
         }
     
