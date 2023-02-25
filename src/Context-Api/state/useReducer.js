@@ -8,7 +8,7 @@ export const initialState = {
     
 }
 
-export const courseReducer = (state, action) =>{
+export const reducer = (state, action) =>{
     switch (action.type) {
         case actionTypes.FETCHING_START: {
             return {
