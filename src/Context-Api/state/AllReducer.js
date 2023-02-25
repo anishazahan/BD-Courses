@@ -8,7 +8,7 @@ export const initialState = {
     
 }
 
-export const reducer = (state, action) =>{
+export const AllReducer = (state, action) =>{
     switch (action.type) {
         case actionTypes.FETCHING_START: {
             return {

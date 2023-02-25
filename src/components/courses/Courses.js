@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import {getData, useAllContext} from "../../Context-Api/AllContext.js"
 
 const Courses = () => {
+    const {value}=useAllContext();
+    // console.log(value);
+
+    
+    // useEffect(() => {
+    //     getData(api);
+    //   }, []);
+
+
   return (
     <>
-   
-
     <section className="max-w-7xl mx-auto lg:px-16 px-5 md:px-10 my-20">
 
          {/* ...........courses heading............... */}
