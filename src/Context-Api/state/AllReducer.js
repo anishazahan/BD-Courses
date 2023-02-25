@@ -5,6 +5,10 @@ export const initialState = {
     loading: false,
     data: [],
     error: false,
+    singleError:false,
+    singleLoading:false,
+    singleData :{},
+    
     
 }
 
@@ -31,6 +35,14 @@ export const AllReducer = (state, action) =>{
                 ...state,
                 loading: false,
                 error: true
+            }
+        }
+
+        case actionTypes.FETCHING_START: {
+            return {
+                ...state,
+                loading: true,
+                error: false
             }
         }
     

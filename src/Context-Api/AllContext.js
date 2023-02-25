@@ -21,6 +21,19 @@ const AllContext = ({children})=>{
         }
       };
 
+       //--       for single data
+
+  const getSingleData= async (url) => {
+    dispatch({ type: "FETCHING_START" });
+    try {
+      const res = await axios.get(url);
+      const singleData = await res.data;
+      dispatch({ type: "FETCHING_SUCCESS", payload: singleData });
+    } catch (error) {
+      dispatch({ type: "FETCHING_ERROR", payload:error.message });
+    }
+  };
+
     //   const value = {
     //     state, dispatch
     // }
@@ -28,7 +41,7 @@ const AllContext = ({children})=>{
     
     // console.log(state);
       return (
-        <mainContext.Provider value={{...state,getData }}>
+        <mainContext.Provider value={{...state,getData,getSingleData }}>
           {children}
         </mainContext.Provider>
       );
