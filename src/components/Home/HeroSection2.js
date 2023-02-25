@@ -1,5 +1,6 @@
 import React from 'react'
 import {BsCheck} from "react-icons/bs"
+import CommonBtn from '../CommonBtn'
 
 const HeroSection2 = () => {
   return (
@@ -20,8 +21,12 @@ const HeroSection2 = () => {
                      <div className="flex items-center space-x-1">
                      <BsCheck className='font-extrabold text-3xl text-secondary'></BsCheck><li className='font-medium text-slate-800'>Learn the latest skills</li>
                      </div>
+                     <CommonBtn props={"Apply Now"}></CommonBtn>
                        
                     </ul>
+                </div>
+                <div className="right">
+                    
                 </div>
             </div>
         </div>

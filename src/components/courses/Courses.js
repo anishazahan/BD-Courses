@@ -2,6 +2,7 @@ import moment from 'moment/moment.js'
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {useAllContext} from "../../Context-Api/AllContext.js"
+import CommonBtn from '../CommonBtn.js'
 import CourseCard from './CourseCard.js'
 
 const Courses = () => {
@@ -45,7 +46,7 @@ const Courses = () => {
                 </div>
             </div>
             <div className="right ">
-                <Link to='/' className='px-4 py-[10px] text-white font-semibold bg-secondary hover:bg-primary duration-300 hover:underline'>View all Courses</Link>
+               <CommonBtn props={"View All Courses"}></CommonBtn>
             </div>
             </div>
         </div>
