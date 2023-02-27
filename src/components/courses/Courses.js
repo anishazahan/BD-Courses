@@ -11,8 +11,8 @@ const Courses = () => {
 
     useEffect(() => {
         getData(api);
-      }, []);
-      // console.log(data)
+      }, [api]);
+      console.log(data)
 
 
 

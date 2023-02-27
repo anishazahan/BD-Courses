@@ -5,12 +5,12 @@ import './home.css'
 
   const TestMonial =()=>{
 
-    const {getData,data}=useAllContext();
+    const {getTestimonialData,testimonialData}=useAllContext();
     const api = "testmonial.json"
     useEffect(() => {
-        getData(api);
+        getTestimonialData(api);
       }, []);
-    //   console.log(data);
+      console.log(testimonialData);
  
     const settings = {
       dots: true,
@@ -32,7 +32,7 @@ import './home.css'
         
         >
          {
-            data.map(singleItem=>{
+            testimonialData.map(singleItem=>{
                 return (
                 <div key={singleItem.id} className="border border-gray shadow px-3 py-5">
                         <div className="">

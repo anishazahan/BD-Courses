@@ -11,7 +11,7 @@ const AllContext = ({children})=>{
    const getData = async (url) => {
         dispatch({ type: "FETCHING_START" });
         try {
-          console.log(url)
+          // console.log(url)
           const res = await axios.get(url);
           const data= await res.data;
           // console.log(data);
@@ -38,9 +38,23 @@ const AllContext = ({children})=>{
     }
   };
 
+
+  const getTestimonialData = async (url) => {
+    dispatch({ type: "START" });
+    try {
+      console.log(url)
+      const res = await axios.get(url);
+      const testimonialData= await res.data;
+      // console.log(testimonialData);
+      dispatch({ type: "SUCCESS", payload:testimonialData });
+    } catch (error) {
+      dispatch({ type: "ERROR", payload:error.message });
+    }
+  };
+
     // console.log(state);
       return (
-        <mainContext.Provider value={{...state,getData,getSingleData }}>
+        <mainContext.Provider value={{...state,getData,getSingleData,getTestimonialData }}>
           {children}
         </mainContext.Provider>
       );

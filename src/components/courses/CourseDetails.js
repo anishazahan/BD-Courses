@@ -4,8 +4,8 @@ import { useAllContext } from '../../Context-Api/AllContext';
 
 const CourseDetails = () => {
     const {id}= useParams();
-    // console.log(title)
-
+    // console.log(id);
+  
     const {getSingleData,singleData}=useAllContext();
     console.log(singleData);
     const api = "courses.json"

@@ -1,5 +1,5 @@
 
-import { actionTypes } from "./actionType"
+import { coursesActionTypes ,testimonialActionTypes} from "./actionType"
 
 export const initialState = {
     loading: false,
@@ -8,13 +8,16 @@ export const initialState = {
     singleError:false,
     singleLoading:false,
     singleData :{},
-    
-    
+    testimonialData:[]
+     
 }
 
 export const AllReducer = (state, action) =>{
     switch (action.type) {
-        case actionTypes.FETCHING_START: {
+
+           // .........for courses data...........
+
+        case coursesActionTypes.FETCHING_START: {
             return {
                 ...state,
                 loading: true,
@@ -23,7 +26,7 @@ export const AllReducer = (state, action) =>{
             }
         }
 
-        case actionTypes.FETCHING_SUCCESS: {
+        case coursesActionTypes.FETCHING_SUCCESS: {
             return {
                 ...state,
                 loading: false,
@@ -31,7 +34,7 @@ export const AllReducer = (state, action) =>{
                 error: false
             }
         }
-        case actionTypes.FETCHING_ERROR: {
+        case coursesActionTypes.FETCHING_ERROR: {
             return {
                 ...state,
                 loading: false,
@@ -39,7 +42,9 @@ export const AllReducer = (state, action) =>{
             }
         }
 
-        case actionTypes.SINGLE_FETCHING_START: {
+        // .........for single data...........
+
+        case coursesActionTypes.SINGLE_FETCHING_START: {
             return {
                 ...state,
                 singleLoading: true,
@@ -47,7 +52,7 @@ export const AllReducer = (state, action) =>{
             }
         }
 
-        case actionTypes.SINGLE_FETCHING_SUCCESS: {
+        case coursesActionTypes.SINGLE_FETCHING_SUCCESS: {
             return {
                 ...state,
                 singleLoading: false,
@@ -56,11 +61,38 @@ export const AllReducer = (state, action) =>{
             }
         }
 
-        case actionTypes.SINGLE_FETCHING_ERROR: {
+        case coursesActionTypes.SINGLE_FETCHING_ERROR: {
             return {
                 ...state,
                 singleLoading: false,
                 singleError: true
+            }
+        }
+
+        // .........for testimonial data...........
+        
+        case testimonialActionTypes.START: {
+            return {
+                ...state,
+                loading: true,
+                error: false,
+                testimonialData:[]
+            }
+        }
+
+        case testimonialActionTypes.SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                testimonialData: action.payload,
+                error: false
+            }
+        }
+        case testimonialActionTypes.ERROR: {
+            return {
+                ...state,
+                loading: false,
+                error: true
             }
         }
     
