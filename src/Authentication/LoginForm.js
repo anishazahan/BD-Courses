@@ -2,11 +2,24 @@
 
 import React from 'react'
 import img from "../../src/img/googleIcon.png"
+import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
+
+  //---------from react hook form---------
+  const {
+    register,
+    handleSubmit,
+  } = useForm();
+
+  //---------custom function for get form data---------
+
+  const handleLogin = (data) => {
+    console.log(data);
+  };
   return (
     <><div className="">
-        <form action="">
+        <form onSubmit={handleSubmit(handleLogin)}>
             <h2 className='font-semibold mb-3'>Enter Your Email</h2>
             <input
               type="email"
