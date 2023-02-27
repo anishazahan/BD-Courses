@@ -9,6 +9,7 @@ const LoginForm = () => {
   //---------from react hook form---------
   const {
     register,
+    formState: { errors },
     handleSubmit,
   } = useForm();
 
@@ -23,17 +24,63 @@ const LoginForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Email</h2>
             <input
               type="email"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-black placeholder-gray font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
-             
+              //---------for email get data and validate---------
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "Email must be Required",
+                },
+                pattern: {
+                  value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                  message: "Enter Valid Email",
+                },
+              })}
             />
+            {/* //---------for email error handling--------- */}
+             <div className="">
+              {errors.email?.type === "required" && (
+                <p className="text-sm text-red-600 mb-2 ">
+                  {errors.email.message}
+                </p>
+              )}
+              {errors.email?.type === "pattern" && (
+                <p className="text-sm text-red-600 mb-2 ">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
             <h2 className='font-semibold mb-3'>Enter Your Password</h2>
             <input
               type="password"
               className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
-             
+             //---------for  password data and validate---------
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password must be Required",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Password must be min six character",
+                },
+              })}
             />
+              {/* //---------for email error handling--------- */}
+              <div className=" ">
+              {errors.password?.type === "required" && (
+                <p className="text-sm text-red-600 mb-2 ">
+                  {errors.password.message}
+                </p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-sm text-red-600">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
              <input
               type="submit"
               value="Login"
