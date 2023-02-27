@@ -5,7 +5,7 @@ const CourseCard = (course) => {
     const {id,img,title,heading} = course;
   return (
     <>
-        <NavLink to={`/Courses/${heading}`}>
+        <NavLink to={`/${id}`}>
         <div className="card">
             <img className='h-64' src={img} alt="" />
             <h2>{title}</h2>

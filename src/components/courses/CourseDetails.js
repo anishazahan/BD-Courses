@@ -3,20 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useAllContext } from '../../Context-Api/AllContext';
 
 const CourseDetails = () => {
-    const {title}= useParams();
+    const {id}= useParams();
     // console.log(title)
 
-    const {getSingleData}=useAllContext();
-    // console.log(getSingleData);
+    const {getSingleData,singleData}=useAllContext();
+    console.log(singleData);
     const api = "courses.json"
 
     useEffect(() => {
-        getSingleData(`${api}/${title}`);
-       
-      }, []);
+        getSingleData(api,id);
+      }, [id]);
      
   return (
-    <div>CourseDetails</div>
+    <div>CourseDetailsfgg</div>
   )
 }
 

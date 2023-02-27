@@ -12,9 +12,9 @@ const Home = () => {
    <HeroSection></HeroSection>
    <Courses></Courses>
    <PolygonCountSection props={"bg-primary"}></PolygonCountSection>
-   <TestMonial></TestMonial>
+   {/* <TestMonial></TestMonial> */}
    <HeroSection2></HeroSection2>
-   <CatagorySlider></CatagorySlider>
+   {/* <CatagorySlider></CatagorySlider> */}
    </>
   )
 }

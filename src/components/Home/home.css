@@ -68,9 +68,10 @@ clip-path: polygon(0 0, 100% 0, 100% 63%, 0 100%);
     color: palevioletred;
   }
   @media (max-width: 768px) {
-    h3 {
-      font-size: 24px;
-    }
+   .slick-list{
+    display: flex;
+    flex-direction: column;
+   }
     .center {
       margin-left: -40px;
       margin-right: -40px;

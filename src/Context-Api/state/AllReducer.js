@@ -18,7 +18,8 @@ export const AllReducer = (state, action) =>{
             return {
                 ...state,
                 loading: true,
-                error: false
+                error: false,
+                data:[]
             }
         }
 

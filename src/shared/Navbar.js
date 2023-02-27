@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex py-2">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 lg:block">
-                        <Link href={"/"}>
+                    <Link href={"/"}>
                         <div className="flex items-center">
                          <h2 className='font-semibold text-2xl text-primary first-letter:font-extrabold'>Courses</h2>
                          <h2 className='text-3xl font-bold text-secondary'>BD</h2>

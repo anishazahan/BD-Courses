@@ -69,12 +69,7 @@ export default class CatagorySlider extends Component {
            </div>
           </div>
           <div>
-          <div className="slider-box justify-center items center border border-gray p-7 shadow w-full space-y-2 py-10">
-              <div className="">
-                <button className="text-5xl text-secondary font-medium"><FaLaptopCode></FaLaptopCode></button>
-              </div>
-            <h2>Web Development</h2>
-           </div>
+         
           </div>
           
         </Slider>

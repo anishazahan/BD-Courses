@@ -26,7 +26,11 @@ import './home.css'
         <div className="text-center">
         <h2 className="inline text-2xl font-bold px-3 rounded-lg py-2 bg-secondary text-white">“শিক্ষার্থীরা যা বলছে” </h2>
         </div>
-        <Slider {...settings} className="">
+        <Slider {...settings} className=""
+        
+       
+        
+        >
          {
             data.map(singleItem=>{
                 return (

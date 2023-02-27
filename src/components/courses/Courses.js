@@ -8,14 +8,11 @@ import CourseCard from './CourseCard.js'
 const Courses = () => {
     const {getData,data}=useAllContext();
     const api = "courses.json"
+
     useEffect(() => {
         getData(api);
       }, []);
-    //   console.log(data)
-
-
-
-
+      console.log(data)
 
 
     //   const today = moment().format();
