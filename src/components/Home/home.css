@@ -37,10 +37,11 @@ clip-path: polygon(0 0, 100% 0, 100% 63%, 0 100%);
   .slick-slide .image {
     padding: 10px;
   }
-  .slick-slide img {
+  .slick-slide {
     border: 5px solid #fff;
     display: block;
     margin: auto;
+    gap: 25px;
   }
   .slick-slide img.slick-loading {
     border: 0;
@@ -57,12 +58,14 @@ clip-path: polygon(0 0, 100% 0, 100% 63%, 0 100%);
   .slick-thumb li {
     width: 60px;
     height: 45px;
+    color: palevioletred;
   }
   .slick-thumb li img {
     filter: grayscale(100%);
   }
   .slick-thumb li.slick-active img {
-    filter: grayscale(0%);
+    filter: grayscale(2%);
+    color: palevioletred;
   }
   @media (max-width: 768px) {
     h3 {

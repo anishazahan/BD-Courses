@@ -18,10 +18,6 @@ const Courses = () => {
 
 
 
-
-
-
-
     //   const today = moment().format();
     //    const now = moment(today);
     // const month = moment(event.date, 'YYY-MM-DD').format('MMMM') 
