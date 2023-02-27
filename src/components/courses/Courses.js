@@ -12,7 +12,8 @@ const Courses = () => {
     useEffect(() => {
         getData(api);
       }, []);
-      console.log(data)
+      // console.log(data)
+
 
 
     //   const today = moment().format();

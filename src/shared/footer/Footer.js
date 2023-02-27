@@ -12,7 +12,7 @@ const Footer = () => {
     
 
 <footer className="bg-primary">
-  <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+  <div className="max-w-7xl px-4 py-16 mx-auto sm:px-6 lg:px-16">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
                      <Link href={"/"}>
@@ -63,7 +63,7 @@ const Footer = () => {
           <Link to='/about' className="hover:opacity-75 text-slate-300" > Contact </Link>
             <Link to='/courses' className="hover:opacity-75 text-slate-300" > abc@gmail.com </Link>
             <div className="">
-              <input type="text" placeholder='Subscribe' className='px-3 py-2 placeholder-secondary outline-none rounded-lg' />
+              <input type="text" placeholder='Subscribe' className='px-3 py-2 placeholder-secondary outline-none rounded-lg w-full' />
             </div>
           </nav>
         </div>
