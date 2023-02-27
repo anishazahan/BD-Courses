@@ -1,5 +1,5 @@
 
-import { coursesActionTypes ,testimonialActionTypes} from "./actionType"
+import { coursesActionTypes ,testimonialActionTypes,blogActionTypes} from "./actionType"
 
 export const initialState = {
     loading: false,
@@ -8,7 +8,8 @@ export const initialState = {
     singleError:false,
     singleLoading:false,
     singleData :{},
-    testimonialData:[]
+    testimonialData:[],
+    blogData:[]
      
 }
 
@@ -95,6 +96,34 @@ export const AllReducer = (state, action) =>{
                 error: true
             }
         }
+
+         // .........for blog data...........
+
+         case blogActionTypes.BLOG_FETCHING_START: {
+            return {
+                ...state,
+                loading: true,
+                error: false,
+                blogData:[]
+            }
+        }
+
+        case blogActionTypes.BLOG_FETCHING_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                blogData: action.payload,
+                error: false
+            }
+        }
+        case blogActionTypes.BLOG_FETCHING_ERROR: {
+            return {
+                ...state,
+                loading: false,
+                error: true
+            }
+        }
+        
     
         default:
             
