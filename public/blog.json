@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name":"How Design Can Help Your Business Reach Its Full Potential",
+        "heading":"Art and Design",
+        "authorImg":"https://i.ibb.co/QD41NMH/ins3.png",
+        "authorName":"Jhon Doe",
+        "date":"01 APR 2023"
+    },
+    {
+        "id":2,
+        "name":"How Design Can Help Your Business Reach Its Full Potential",
+        "heading":"Development",
+        "authorImg":"https://i.ibb.co/HPrvjsh/ins1.png",
+        "authorName":"Samuel Serif",
+        "date":"03 APR 2023"
+    },
+    {
+        "id":3,
+        "name":"How Design Can Help Your Business Reach Its Full Potential",
+        "heading":"Grafic",
+        "authorImg":"https://i.ibb.co/P5X21Ty/ins2.png",
+        "authorName":"Pelican Steve",
+        "date":"05 APR 2023"
+    }
+]
