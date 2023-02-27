@@ -38,6 +38,7 @@ const AllContext = ({children})=>{
     }
   };
 
+     //--       for testimonial data
 
   const getTestimonialData = async (url) => {
     dispatch({ type: "START" });
@@ -52,9 +53,26 @@ const AllContext = ({children})=>{
     }
   };
 
+    //-- ----      for blogData data
+
+    const getBlogData = async (url) => {
+      dispatch({ type: "BLOG_FETCHING_START" });
+      try {
+        console.log(url)
+        const res = await axios.get(url);
+        const blogData= await res.data;
+        // console.log(testimonialData);
+        dispatch({ type: "BLOG_FETCHING_SUCCESS", payload:blogData });
+      } catch (error) {
+        dispatch({ type: "BLOG_FETCHING_ERROR", payload:error.message });
+      }
+    };
+
+
+
     // console.log(state);
       return (
-        <mainContext.Provider value={{...state,getData,getSingleData,getTestimonialData }}>
+        <mainContext.Provider value={{...state,getData,getSingleData,getTestimonialData,getBlogData }}>
           {children}
         </mainContext.Provider>
       );
