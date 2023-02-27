@@ -13,11 +13,11 @@ const CourseCard = (course) => {
      const minutes = now.diff(date, 'minutes') 
     //  console.log("thats miniutes"+ minutes); 
      const remainingDate = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); 
-   if(minutes<0){
-    console.log(remainingDate+"Coming Soon");
-   }else{
-    console.log("Running")
-   }
+  //  if(minutes<0){
+  //   console.log(remainingDate+"Coming Soon");
+  //  }else{
+  //   console.log("Running")
+  //  }
   return (
     <>
         <NavLink to={`/${id}`}>

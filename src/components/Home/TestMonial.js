@@ -10,7 +10,7 @@ import './home.css'
     useEffect(() => {
         getTestimonialData(api);
       }, []);
-      console.log(testimonialData);
+    //   console.log(testimonialData);
  
     const settings = {
       dots: true,

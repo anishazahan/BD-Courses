@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Courses from '../../components/courses/Courses'
 import CatagorySlider from '../../components/Home/CatagorySlider'
 import HeroSection from '../../components/Home/HeroSection'
@@ -14,6 +15,7 @@ const Home = () => {
    <PolygonCountSection props={"bg-primary"}></PolygonCountSection>
    <TestMonial></TestMonial>
    <HeroSection2></HeroSection2>
+   
    {/* <CatagorySlider></CatagorySlider> */}
    </>
   )

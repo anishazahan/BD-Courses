@@ -3,7 +3,7 @@ import { useContext, useReducer ,createContext, useEffect} from "react"
 import {AllReducer, initialState} from "./state/AllReducer"
 export const mainContext = createContext();
 
-
+const blogURL = "blog.json"
 const AllContext = ({children})=>{
   const [state, dispatch] = useReducer(AllReducer,initialState);
   // console.log(state);
@@ -43,7 +43,7 @@ const AllContext = ({children})=>{
   const getTestimonialData = async (url) => {
     dispatch({ type: "START" });
     try {
-      console.log(url)
+      // console.log(url)
       const res = await axios.get(url);
       const testimonialData= await res.data;
       // console.log(testimonialData);
@@ -54,17 +54,16 @@ const AllContext = ({children})=>{
   };
 
     //-- ----      for blogData data
-
     const getBlogData = async (url) => {
-      dispatch({ type: "BLOG_FETCHING_START" });
+      dispatch({ type: "START_FETCHING" });
       try {
-        console.log(url)
+        // console.log(url)
         const res = await axios.get(url);
         const blogData= await res.data;
-        // console.log(testimonialData);
-        dispatch({ type: "BLOG_FETCHING_SUCCESS", payload:blogData });
+        // console.log(blogData);
+        dispatch({ type: "SUCCESS_FETCHING", payload: blogData });
       } catch (error) {
-        dispatch({ type: "BLOG_FETCHING_ERROR", payload:error.message });
+        dispatch({ type: "ERROR_FETCHING", payload:error.message });
       }
     };
 

@@ -99,16 +99,16 @@ export const AllReducer = (state, action) =>{
 
          // .........for blog data...........
 
-         case blogActionTypes.BLOG_FETCHING_START: {
+         case blogActionTypes.START_FETCHING: {
             return {
                 ...state,
                 loading: true,
                 error: false,
-                blogData:[]
+              
             }
         }
 
-        case blogActionTypes.BLOG_FETCHING_SUCCESS: {
+        case blogActionTypes.SUCCESS_FETCHING: {
             return {
                 ...state,
                 loading: false,
@@ -116,7 +116,7 @@ export const AllReducer = (state, action) =>{
                 error: false
             }
         }
-        case blogActionTypes.BLOG_FETCHING_ERROR: {
+        case blogActionTypes.ERROR_FETCHING: {
             return {
                 ...state,
                 loading: false,
