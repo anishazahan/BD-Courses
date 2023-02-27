@@ -12,3 +12,8 @@ export const testimonialActionTypes = {
     SUCCESS: "SUCCESS",
     ERROR: "ERROR",
 }
+export const blogActionTypes = {
+    BLOG_FETCHING_START: " BLOG_FETCHING_START",
+    BLOG_FETCHING_SUCCESS: " BLOG_FETCHING_SUCCESS",
+    BLOG_FETCHING_ERROR: " BLOG_FETCHING_ERROR",
+}

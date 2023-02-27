@@ -12,16 +12,11 @@ const Courses = () => {
     useEffect(() => {
         getData(api);
       }, [api]);
-      console.log(data)
+      // console.log(data)
 
 
 
-    //   const today = moment().format();
-    //    const now = moment(today);
-    // const month = moment(event.date, 'YYY-MM-DD').format('MMMM') 
-    // const day = moment(event.date, 'YYY-MM-DD').format('DD')
-    //  const minutes = now.diff(event.date, 'minutes') 
-     // console.log(now); const eventRemaining = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); console.log(eventRemaining);
+  
 
 
   return (
