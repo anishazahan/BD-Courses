@@ -12,9 +12,12 @@ const CourseCard = (course) => {
     const day = moment(date, 'YYY-MM-DD').format('DD')
      const minutes = now.diff(date, 'minutes') 
     //  console.log("thats miniutes"+ minutes); 
-     const eventRemaining = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); 
-     console.log(eventRemaining);
-
+     const remainingDate = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); 
+   if(minutes<0){
+    console.log(remainingDate+"Coming Soon");
+   }else{
+    console.log("Running")
+   }
   return (
     <>
         <NavLink to={`/${id}`}>
@@ -22,7 +25,7 @@ const CourseCard = (course) => {
             <img className='h-64' src={img} alt="" />
             <h2>{title}</h2>
             {
-
+              minutes<0? <button>{remainingDate}</button>: <button>Running</button>
             }
         </div>
         </NavLink>
