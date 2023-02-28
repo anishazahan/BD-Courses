@@ -23,13 +23,9 @@ const LoginForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm();
 
- 
-
-   //---------authentication ---------
-    // const {signIn} = useContext(authContext);
-    // const[loginError,setLoginError]=useState("")
 
     //------  redirect page ---------
 const navigate= useNavigate();
@@ -43,26 +39,10 @@ const navigate= useNavigate();
     return <p>Loading--------</p> ;
   }
 
-  //---------custom function for get form data---------
-
-  // const handleLogin = (data) => {
-   
-  //   setLoginError("");
-  //   signIn(data.email,data.password)
-  //   .then(result=>{
-  //     const user = result.user;
-  //     // toast("Login successfully")
-  //     console.log(user);
-  //     navigate(from,{replace:true});
-  //   })
-  //   .catch(error =>
-  //     // console.log(error.message),
-  //     setLoginError(error.message)
-  //   )
-  // };
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
     toast( <p className='text-bold px-3 py-2 border-2 border-secondary text-black top-[30%] right-0'>SignUp Successfully</p> )
+    reset();
   
     // console.log(data);
   };

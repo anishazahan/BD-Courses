@@ -19,6 +19,9 @@ const SignUpForm = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
   useCreateUserWithEmailAndPassword(auth);
 
+  const navigate = useNavigate();
+
+
   //---------from react hook form---------
   const {
     register,
@@ -27,8 +30,21 @@ const SignUpForm = () => {
     reset
   } = useForm();
 
-  let loginError;
+ //-------- for google signUp with redirect 
 
+  const handleSignInWithGoogle = async()=>{
+    try {
+      const res = await signInWithGoogle();
+      navigate("/");
+      
+    } catch (error) {
+      
+    }
+  }
+
+  //-------- for firebase error---
+
+  let loginError;
   if (googleUser || error) {
     loginError = (
       <p className="text-sm text-red-600">
@@ -36,7 +52,7 @@ const SignUpForm = () => {
       </p>
     );
   }
-const navigate = useNavigate();
+
   if (googleLoading || loading) {
     return <p>Loading--------</p> ;
   }
@@ -46,7 +62,7 @@ const navigate = useNavigate();
     toast( <p className='text-bold px-3 py-2 border-2 border-secondary text-black top-[30%] right-0'>SignUp Successfully</p> )
     reset();
     // console.log(" done");
-      navigate ('/')
+      navigate('/');
   };
  
   return (
@@ -150,7 +166,7 @@ const navigate = useNavigate();
             <div className="flex justify-center mt-7">
                 <div className="google-btn flex space-x-2 border-2 border-gray px-3 py-1 rounded-full">
                     <img className='w-7' src={img} alt="" />
-                    <button onClick={() => signInWithGoogle()} className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
+                    <button onClick={() => handleSignInWithGoogle()} className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
                 </div>
                
             </div>
