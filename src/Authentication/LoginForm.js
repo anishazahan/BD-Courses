@@ -1,10 +1,11 @@
 
 
 import React, { useContext, useState } from 'react'
-import {Link} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
 import { authContext } from './AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const LoginForm = () => {
 
@@ -19,6 +20,11 @@ const LoginForm = () => {
     const {signIn} = useContext(authContext);
     const[loginError,setLoginError]=useState("")
 
+    //------  redirect page ---------
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   //---------custom function for get form data---------
 
@@ -28,7 +34,9 @@ const LoginForm = () => {
     signIn(data.email,data.password)
     .then(result=>{
       const user = result.user;
-      console.log(user)
+      // toast("Login successfully")
+      // console.log(user)
+      navigate(from,{replace:true});
     })
     .catch(error =>
       // console.log(error.message),
@@ -71,14 +79,18 @@ const LoginForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Password</h2>
             <input
               type="password"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
              //---------for  password data and validate---------
               {...register("password", {
                 required: {
                   value: true,
                   message: "Password must be Required",
-                }
+                },
+                minLength: {
+                  value: 6,
+                  message: "Password must be min six character",
+                },
               })}
             />
               {/* //---------for email error handling--------- */}

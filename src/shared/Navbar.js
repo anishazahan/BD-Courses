@@ -7,8 +7,15 @@ import Logo from './Logo';
 import { authContext } from '../Authentication/AuthProvider';
 
 const Navbar = () => {
-    const {user}= useContext(authContext)
+    const {user,logOut}= useContext(authContext)
     const [navbar, setNavbar] = useState(false);
+    const handleLogOut =()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>{
+            console.log(error)
+        })
+    }
   return (
     <>
 
@@ -61,15 +68,13 @@ const Navbar = () => {
 
                         <div className="mt-3 space-y-2 lg:hidden ">
                    {
-                    user?.uid?  <Link to='/'
-                    className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Sign Out</Link>
+                    user? <button onClick={handleLogOut()}
+                    className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Log Out</button>
                     :
-                    <Link to='/login'className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Sign in </Link> 
+                    <Link to='/login'className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Login </Link> 
                    }
                     <Link to='/signUp'
-                       
-                        className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                    >
+                        className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100">
                         Sign up
                     </Link>
                 </div>
@@ -81,15 +86,15 @@ const Navbar = () => {
 
                 <div className="hidden space-x-4 lg:block">
                 {
-                    user?.uid? <Link to="/" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
+                    user? <button onClick={handleLogOut()} className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
                     LogOut
-                     </Link>:
+                     </button>:
                      <Link to="/login" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
                      Login
                       </Link>
                 }
                    <Link to="/signUp"  className="px-6 py-[10px] text-white bg-primary font-medium duration-500 shadow hover:text-white hover:bg-secondary ">
-                  SignIn
+                  SignUp
                    </Link>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 
 
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Authentication/Login";
 import SignUP from "./Authentication/SignUP";
@@ -30,6 +31,7 @@ function App() {
       <Route path='/signUp' element={<SignUP/>}/>
     </Routes>
     <Footer></Footer>
+    <Toaster></Toaster>
     </>
   );
 }

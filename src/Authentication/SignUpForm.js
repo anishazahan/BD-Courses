@@ -4,6 +4,7 @@ import React, { useCallback, useContext } from 'react'
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
 import { authContext} from "./AuthProvider"
+import { toast } from 'react-hot-toast';
 
 const SignUpForm = () => {
 
@@ -18,18 +19,19 @@ const SignUpForm = () => {
 
   //---------custom function for get form data---------
 
-  const handleSignIn = (data) => {
+  const handleSignUp = (data) => {
     console.log(data);
     createUser(data.email,data.password)
     .then(result=>{
       const user = result.user;
+      toast( <p className='px-5 py-2 border-secondary text-secondary top-[50px]'>Successfully SignUp</p>)
       console.log(user)
     })
     .catch(error=>console.log(error))
   };
   return (
     <><div className="">
-        <form onSubmit={handleSubmit(handleSignIn)}>
+        <form onSubmit={handleSubmit(handleSignUp)}>
 
         <h2 className='font-semibold mb-3'>Enter Your Name</h2>
         <input
