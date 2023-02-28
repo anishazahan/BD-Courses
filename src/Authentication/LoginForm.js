@@ -1,9 +1,10 @@
 
 
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import {Link} from "react-router-dom"
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
+import { authContext } from './AuthProvider';
 
 const LoginForm = () => {
 
@@ -14,10 +15,21 @@ const LoginForm = () => {
     handleSubmit,
   } = useForm();
 
+   //---------authentication ---------
+    const {signIn} = useContext(authContext);
+    const[loginError,setLoginError]=useState("")
+
+
   //---------custom function for get form data---------
 
   const handleLogin = (data) => {
-    console.log(data);
+    // console.log(data);
+    signIn(data.email,data.password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(error=>console.log(error))
   };
   return (
     <><div className="">

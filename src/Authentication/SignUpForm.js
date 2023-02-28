@@ -19,7 +19,7 @@ const SignUpForm = () => {
   //---------custom function for get form data---------
 
   const handleSignIn = (data) => {
-    // console.log(data);
+    console.log(data);
     createUser(data.email,data.password)
     .then(result=>{
       const user = result.user;
@@ -98,7 +98,7 @@ const SignUpForm = () => {
                 },
               })}
             />
-              {/* //---------for email error handling--------- */}
+              {/* //---------for password error handling--------- */}
               <div className=" ">
               {errors.password?.type === "required" && (
                 <p className="text-sm text-red-600 mb-2 ">
@@ -113,7 +113,7 @@ const SignUpForm = () => {
             </div>
              <input
               type="submit"
-              value="Login"
+              value="SignUp"
               className="w-full bg-primary text-white hover:bg-secondary cursor-pointer font-semibold px-4 py-[12px] mt-3 mb-5"
             />
         </form>
