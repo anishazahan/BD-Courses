@@ -4,18 +4,27 @@ import { Link,NavLink } from 'react-router-dom'
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import Logo from './Logo';
-import { authContext } from '../Authentication/AuthProvider';
+import { auth } from '../firebase/firebase.init';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+// import { authContext } from '../Authentication/AuthProvider';
 
 const Navbar = () => {
-    const {user,logOut}= useContext(authContext)
+    // const {user,logOut}= useContext(authContext)
+    // console.log(user);
     const [navbar, setNavbar] = useState(false);
-    const handleLogOut =()=>{
-        logOut()
-        .then(()=>{})
-        .catch(error=>{
-            console.log(error)
-        })
-    }
+    const [user, loading, error] = useAuthState(auth);
+    console.log(user)
+    const [signOut] = useSignOut(auth);
+    // const handleLogOut =()=>{
+    //     logOut()
+    //     .then(()=>{})
+    //     .catch(error=>{
+    //         console.log(error)
+    //     })
+    // }
+    const logout = async() => {
+        await signOut(auth);
+      };
   return (
     <>
 
@@ -67,8 +76,9 @@ const Navbar = () => {
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden ">
+                        {/* onClick={handleLogOut() */}
                    {
-                    user? <button onClick={handleLogOut()}
+                    user? <button onClick={logout}
                     className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Log Out</button>
                     :
                     <Link to='/login'className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Login </Link> 
@@ -86,7 +96,7 @@ const Navbar = () => {
 
                 <div className="hidden space-x-4 lg:block">
                 {
-                    user? <button onClick={handleLogOut()} className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
+                    user? <button onClick={logout} className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
                     LogOut
                      </button>:
                      <Link to="/login" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">

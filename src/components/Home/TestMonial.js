@@ -22,7 +22,7 @@ import './home.css'
       autoplaySpeed: 4000,
     }
     return (
-      <div className="max-w-7xl px-5 lg:px-16 mx-auto space-y-10 ">
+      <div className="max-w-7xl px-5 lg:px-16 mx-auto space-y-10 mb-32">
         <div className="text-center">
         <h2 className="inline text-2xl font-bold px-3 rounded-lg py-2 bg-secondary text-white">“শিক্ষার্থীরা যা বলছে” </h2>
         </div>

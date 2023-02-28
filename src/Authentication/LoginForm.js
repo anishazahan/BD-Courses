@@ -6,9 +6,18 @@ import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
 import { authContext } from './AuthProvider';
 import { toast } from 'react-hot-toast';
+import {auth} from '../firebase/firebase.init';
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 const LoginForm = () => {
 
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  console.log(googleUser)
+  const [signInWithEmailAndPassword, user, loading, error] =
+  useSignInWithEmailAndPassword(auth);
   //---------from react hook form---------
   const {
     register,
@@ -16,40 +25,54 @@ const LoginForm = () => {
     handleSubmit,
   } = useForm();
 
+ 
+
    //---------authentication ---------
-    const {signIn} = useContext(authContext);
-    const[loginError,setLoginError]=useState("")
+    // const {signIn} = useContext(authContext);
+    // const[loginError,setLoginError]=useState("")
 
     //------  redirect page ---------
+const navigate= useNavigate();
   const location = useLocation();
-  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+  if(user || googleUser){
+      navigate(from , { replace: true });
+  }
 
-  const from = location.state?.from?.pathname || "/";
+  if (googleLoading || loading) {
+    return <p>Loading--------</p> ;
+  }
 
   //---------custom function for get form data---------
 
-  const handleLogin = (data,e) => {
-    e.preventdefault();
-    setLoginError("");
-    signIn(data.email,data.password)
-    .then(result=>{
-      const user = result.user;
-      // toast("Login successfully")
-      console.log(user);
-      navigate(from,{replace:true});
-    })
-    .catch(error =>
-      // console.log(error.message),
-      setLoginError(error.message)
-    )
+  // const handleLogin = (data) => {
+   
+  //   setLoginError("");
+  //   signIn(data.email,data.password)
+  //   .then(result=>{
+  //     const user = result.user;
+  //     // toast("Login successfully")
+  //     console.log(user);
+  //     navigate(from,{replace:true});
+  //   })
+  //   .catch(error =>
+  //     // console.log(error.message),
+  //     setLoginError(error.message)
+  //   )
+  // };
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+    toast( <p className='text-bold px-3 py-2 border-2 border-secondary text-black top-[30%] right-0'>SignUp Successfully</p> )
+  
+    // console.log(data);
   };
   return (
     <><div className="">
-        <form onSubmit={handleSubmit(handleLogin)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className='font-semibold mb-3'>Enter Your Email</h2>
             <input
               type="email"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-black placeholder-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-black font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
               //---------for email get data and validate---------
               {...register("email", {
@@ -79,7 +102,7 @@ const LoginForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Password</h2>
             <input
               type="password"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-black font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
              //---------for  password data and validate---------
               {...register("password", {
@@ -113,7 +136,7 @@ const LoginForm = () => {
             />
         </form>
         <div className="">
-          {loginError && <p className="text-red text-sm font-medium">{loginError}</p>}
+          {/* {loginError && <p className="text-red text-sm font-medium">{loginError}</p>} */}
         </div>
 
             <div className="">
@@ -125,7 +148,7 @@ const LoginForm = () => {
             <div className="flex justify-between  mt-7 items-center">
                 <div className="google-btn flex space-x-2 border-2 border-gray px-3 py-1 rounded-full">
                     <img className='w-7' src={img} alt="" />
-                    <button className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
+                    <button  onClick={() => signInWithGoogle()} className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
                 </div>
                 <div className="signUp-btn">
                     <Link to='/signUp' className='border-2 border-slate-400 font-medium px-6 py-2 hover:bg-primary hover:text-white duration-300 rounded-full'>SignUp Now</Link>

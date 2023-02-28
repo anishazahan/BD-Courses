@@ -1,42 +1,67 @@
 
 
-import React, { useCallback, useContext } from 'react'
+import React, {  useContext } from 'react'
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
 import { authContext} from "./AuthProvider"
 import { toast } from 'react-hot-toast';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { auth } from '../firebase/firebase.init';
+
 
 const SignUpForm = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  // console.log(googleUser);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+  useCreateUserWithEmailAndPassword(auth);
 
   //---------from react hook form---------
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm();
 
-  const {createUser} = useContext(authContext)
+  // const {createUser} = useContext(authContext)
 
   //---------custom function for get form data---------
 
-  const handleSignUp = (data) => {
+  // const handleSignUp = (data) => {
+  //   console.log(data);
+  //   createUser(data.email,data.password)
+  //   .then(result=>{
+  //     const user = result.user;
+  //     toast( <p className='px-5 py-2 border-secondary text-secondary top-[50px]'>Successfully SignUp</p>)
+  //     console.log(user)
+  //     reset(result)
+  //   })
+  //   .catch(error=>console.log(error))
+  // };
+
+
+  if (googleLoading || loading) {
+    return <p>Loading--------</p> ;
+  }
+  const onSubmit = async (data) => {
     console.log(data);
-    createUser(data.email,data.password)
-    .then(result=>{
-      const user = result.user;
-      toast( <p className='px-5 py-2 border-secondary text-secondary top-[50px]'>Successfully SignUp</p>)
-      console.log(user)
-    })
-    .catch(error=>console.log(error))
+    await createUserWithEmailAndPassword(data.email, data.password);
+    toast( <p className='text-bold px-3 py-2 border-2 border-secondary text-black top-[30%] right-0'>SignUp Successfully</p> )
+    console.log(" done");
+    //   navigate ('/home')
   };
+ 
   return (
     <><div className="">
-        <form onSubmit={handleSubmit(handleSignUp)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
 
         <h2 className='font-semibold mb-3'>Enter Your Name</h2>
         <input
               type="text"
-              className=" pl-3 py-[10px] placeholder-black form-control w-full bg-transparent border border-2 outline-none text-sm text-black placeholder-gray font-medium mb-2 focus:border-secondary"
+              className=" pl-3 py-[10px] form-control w-full bg-transparent  border-2 outline-none text-sm text-black placeholder-gray font-medium mb-2 focus:border-secondary"
               placeholder="Your Name"
               {...register("name", {
                 required: {
@@ -86,7 +111,7 @@ const SignUpForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Password</h2>
             <input
               type="password"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-black font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
              //---------for  password data and validate---------
               {...register("password", {
@@ -129,7 +154,7 @@ const SignUpForm = () => {
             <div className="flex justify-center mt-7">
                 <div className="google-btn flex space-x-2 border-2 border-gray px-3 py-1 rounded-full">
                     <img className='w-7' src={img} alt="" />
-                    <button className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
+                    <button onClick={() => signInWithGoogle()} className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
                 </div>
                
             </div>

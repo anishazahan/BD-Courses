@@ -5,7 +5,7 @@ import HeroImg from "../../img/hero.jpg"
 
 const HeroSection2 = () => {
   return (
-    <section className='mb-20'>
+    <section className='mt-20 mb-28'>
         <div className="max-w-7xl mx-auto px-10 lg:px-16">
             <div className="flex lg:flex-row flex-col-reverse justify-between items-center lg:space-x-4 ">
                 <div className="left">

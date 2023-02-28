@@ -15,7 +15,7 @@ const CourseCard = (course) => {
     const day = moment(date, 'YYY-MM-DD').format('DD')
      const minutes = now.diff(date, 'minutes') 
     //  console.log("thats miniutes"+ minutes); 
-     const remainingDate = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split(","); 
+     const remainingDate = moment .utc().startOf('year').add({ minutes: Math.abs(minutes) }) .format('D [Days,]HH[ Hours,]mm [Minutes]') .split("."); 
   //  if(minutes<0){
   //   console.log(remainingDate+"Coming Soon");
   //  }else{
@@ -30,7 +30,7 @@ const CourseCard = (course) => {
            <img className='h-52 w-full object-cover' src={img} alt="" />
            <div className="bg-black/5 absolute top-0 left-0 right-0 bottom-0 w-full h-full"></div>
            <div className="bg-black/50 absolute top-0 left-0 right-0 w-full h-12">
-            <h2 className='text-2xl text-center text-white flex items-center justify-center font-bold mt-1'>{
+            <h2 className='text-xl text-center text-white flex items-center justify-center font-bold mt-1'>{
               minutes<0? <button>{remainingDate}</button>: <button>Running</button>
             }</h2>
            </div>

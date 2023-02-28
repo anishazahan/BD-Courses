@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import { authContext } from './AuthProvider';
+import { auth } from '../firebase/firebase.init';
 
 const PrivateRoute = ({children}) => {
-    const {user, loading} = useContext(authContext);
+    const [user, loading] = useAuthState(auth);
     const location = useLocation();
 
     if(loading){
