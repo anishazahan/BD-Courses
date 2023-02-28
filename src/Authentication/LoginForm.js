@@ -1,6 +1,7 @@
 
 
 import React from 'react'
+import {Link} from "react-router-dom"
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
 
@@ -61,11 +62,7 @@ const LoginForm = () => {
                 required: {
                   value: true,
                   message: "Password must be Required",
-                },
-                minLength: {
-                  value: 6,
-                  message: "Password must be min six character",
-                },
+                }
               })}
             />
               {/* //---------for email error handling--------- */}
@@ -94,13 +91,13 @@ const LoginForm = () => {
            
            <hr className='text-gray' />
            
-            <div className="flex justify-between  mt-7">
+            <div className="flex justify-between  mt-7 items-center">
                 <div className="google-btn flex space-x-2 border-2 border-gray px-3 py-1 rounded-full">
                     <img className='w-7' src={img} alt="" />
                     <button className='font-medium  hover:text-secondary duration-300'>Continue With Google</button>
                 </div>
                 <div className="signUp-btn">
-                    <button className='border-2 border-slate-400 font-medium px-6 py-2 hover:bg-primary hover:text-white duration-300 rounded-full'>SignUp Now</button>
+                    <Link to='/signUp' className='border-2 border-slate-400 font-medium px-6 py-2 hover:bg-primary hover:text-white duration-300 rounded-full'>SignUp Now</Link>
                 </div>
             </div>
         </div>
