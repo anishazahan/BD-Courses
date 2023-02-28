@@ -49,8 +49,6 @@ const Courses = () => {
 
           </div>
 
-
-
     </section>
 
 

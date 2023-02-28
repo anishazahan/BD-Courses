@@ -8,6 +8,7 @@ import Contact from "../pages/contact/Contact";
 import CourseDetails from "../components/courses/CourseDetails";
 import Login from "../Authentication/Login";
 import SignUP from "../Authentication/SignUP";
+import PrivateRoute from "../Authentication/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/contact",
-                element:<Contact></Contact>
+                element:<PrivateRoute><Contact></Contact></PrivateRoute>
             },
             {
                 path:"/login",

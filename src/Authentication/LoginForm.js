@@ -28,14 +28,14 @@ const LoginForm = () => {
 
   //---------custom function for get form data---------
 
-  const handleLogin = (data) => {
-    // console.log(data);
+  const handleLogin = (data,e) => {
+    e.preventdefault();
     setLoginError("");
     signIn(data.email,data.password)
     .then(result=>{
       const user = result.user;
       // toast("Login successfully")
-      console.log(user)
+      console.log(user);
       navigate(from,{replace:true});
     })
     .catch(error =>

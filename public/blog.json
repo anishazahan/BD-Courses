@@ -1,6 +1,7 @@
 [
     {
         "id":1,
+        "img":"https://i.ibb.co/TMwD06W/3.jpg",
         "name":"How Design Can Help Your Business Reach Its Full Potential",
         "heading":"Art and Design",
         "authorImg":"https://i.ibb.co/QD41NMH/ins3.png",
@@ -9,6 +10,7 @@
     },
     {
         "id":2,
+        "img":"https://i.ibb.co/TMwD06W/3.jpg",
         "name":"How Design Can Help Your Business Reach Its Full Potential",
         "heading":"Development",
         "authorImg":"https://i.ibb.co/HPrvjsh/ins1.png",
@@ -17,6 +19,7 @@
     },
     {
         "id":3,
+        "img":"https://i.ibb.co/TMwD06W/3.jpg",
         "name":"How Design Can Help Your Business Reach Its Full Potential",
         "heading":"Grafic",
         "authorImg":"https://i.ibb.co/P5X21Ty/ins2.png",
