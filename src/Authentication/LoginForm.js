@@ -24,12 +24,16 @@ const LoginForm = () => {
 
   const handleLogin = (data) => {
     // console.log(data);
+    setLoginError("");
     signIn(data.email,data.password)
     .then(result=>{
       const user = result.user;
       console.log(user)
     })
-    .catch(error=>console.log(error))
+    .catch(error =>
+      // console.log(error.message),
+      setLoginError(error.message)
+    )
   };
   return (
     <><div className="">
@@ -96,6 +100,9 @@ const LoginForm = () => {
               className="w-full bg-secondary text-white hover:bg-primary cursor-pointer font-semibold px-4 py-[12px] mt-3 mb-5"
             />
         </form>
+        <div className="">
+          {loginError && <p className="text-red text-sm font-medium">{loginError}</p>}
+        </div>
 
             <div className="">
                 <h2 className='text-slate-400 text-xl text-center mb-5'>or</h2>

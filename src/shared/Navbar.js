@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link,NavLink } from 'react-router-dom'
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import Logo from './Logo';
+import { authContext } from '../Authentication/AuthProvider';
 
 const Navbar = () => {
+    const {user}= useContext(authContext)
     const [navbar, setNavbar] = useState(false);
   return (
     <>
@@ -58,12 +60,12 @@ const Navbar = () => {
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden ">
-                    <Link to='/login'
-                       
-                        className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                    >
-                        Sign in
-                    </Link>
+                   {
+                    user?.uid?  <Link to='/'
+                    className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Sign Out</Link>
+                    :
+                    <Link to='/login'className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">Sign in </Link> 
+                   }
                     <Link to='/signUp'
                        
                         className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
@@ -78,9 +80,14 @@ const Navbar = () => {
 
 
                 <div className="hidden space-x-4 lg:block">
-                <Link to="/login" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
-                  Login
-                   </Link>
+                {
+                    user?.uid? <Link to="/" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
+                    LogOut
+                     </Link>:
+                     <Link to="/login" className="px-6 py-2 text-primary bg-white font-medium border-2 border-primary duration-500 shadow hover:bg-primary hover:text-white ">
+                     Login
+                      </Link>
+                }
                    <Link to="/signUp"  className="px-6 py-[10px] text-white bg-primary font-medium duration-500 shadow hover:text-white hover:bg-secondary ">
                   SignIn
                    </Link>
