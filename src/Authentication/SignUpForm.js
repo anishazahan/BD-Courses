@@ -15,12 +15,33 @@ const SignUpForm = () => {
 
   //---------custom function for get form data---------
 
-  const handleLogin = (data) => {
+  const handleSignIn = (data) => {
     console.log(data);
   };
   return (
     <><div className="">
-        <form onSubmit={handleSubmit(handleLogin)}>
+        <form onSubmit={handleSubmit(handleSignIn)}>
+
+        <h2 className='font-semibold mb-3'>Enter Your Name</h2>
+        <input
+              type="text"
+              className=" pl-3 py-[10px] placeholder-black form-control w-full bg-transparent border border-2 outline-none text-sm text-black placeholder-gray font-medium mb-2 focus:border-secondary"
+              placeholder="Your Name"
+              {...register("name", {
+                required: {
+                  value: true,
+                  message: "Name must be Required",
+                },
+              })}
+            />
+             {/* //---------for name error handling--------- */}
+             <div className="mb-2">
+              {errors.name?.type === "required" && (
+                <p className="text-sm text-red-600 mb-2 ">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
             <h2 className='font-semibold mb-3'>Enter Your Email</h2>
             <input
               type="email"
