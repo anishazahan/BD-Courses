@@ -2,6 +2,7 @@
 
 import { Route, Routes } from "react-router-dom";
 import Login from "./Authentication/Login";
+import SignUP from "./Authentication/SignUP";
 import CourseDetails from "./components/courses/CourseDetails";
 import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
@@ -26,6 +27,7 @@ function App() {
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/signUp' element={<SignUP/>}/>
     </Routes>
     <Footer></Footer>
     </>
