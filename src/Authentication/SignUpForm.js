@@ -1,8 +1,9 @@
 
 
-import React from 'react'
+import React, { useCallback, useContext } from 'react'
 import img from "../../src/img/googleIcon.png"
 import { useForm } from "react-hook-form";
+import { authContext} from "./AuthProvider"
 
 const SignUpForm = () => {
 
@@ -13,10 +14,18 @@ const SignUpForm = () => {
     handleSubmit,
   } = useForm();
 
+  const {createUser} = useContext(authContext)
+
   //---------custom function for get form data---------
 
   const handleSignIn = (data) => {
-    console.log(data);
+    // console.log(data);
+    createUser(data.email,data.password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(error=>console.log(error))
   };
   return (
     <><div className="">
@@ -45,7 +54,7 @@ const SignUpForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Email</h2>
             <input
               type="email"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-black placeholder-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] w-full form-control bg-transparent border outline-none text-sm text-black placeholder-gray font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
               //---------for email get data and validate---------
               {...register("email", {
@@ -75,7 +84,7 @@ const SignUpForm = () => {
             <h2 className='font-semibold mb-3'>Enter Your Password</h2>
             <input
               type="password"
-              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent border border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
+              className=" pl-3 py-[10px] placeholder-slate-300 w-full form-control bg-transparent  border-2 outline-none text-sm text-gray font-medium mb-5 focus:border-secondary"
               placeholder="abc@gmail.com"
              //---------for  password data and validate---------
               {...register("password", {
