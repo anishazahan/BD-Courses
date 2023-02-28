@@ -31,6 +31,7 @@ function App() {
       <Route path='/contact' element={<PrivateRoute><Contact/></PrivateRoute>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signUp' element={<SignUP/>}/>
+      
     </Routes>
     <Footer></Footer> */}
      <RouterProvider router={router} />

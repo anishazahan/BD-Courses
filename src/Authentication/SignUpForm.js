@@ -10,6 +10,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { auth } from '../firebase/firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUpForm = () => {
@@ -26,32 +27,26 @@ const SignUpForm = () => {
     reset
   } = useForm();
 
-  // const {createUser} = useContext(authContext)
+  let loginError;
 
-  //---------custom function for get form data---------
-
-  // const handleSignUp = (data) => {
-  //   console.log(data);
-  //   createUser(data.email,data.password)
-  //   .then(result=>{
-  //     const user = result.user;
-  //     toast( <p className='px-5 py-2 border-secondary text-secondary top-[50px]'>Successfully SignUp</p>)
-  //     console.log(user)
-  //     reset(result)
-  //   })
-  //   .catch(error=>console.log(error))
-  // };
-
-
+  if (googleUser || error) {
+    loginError = (
+      <p className="text-sm text-red-600">
+        {error?.message || googleUser?.message || googleUser?.message}{" "}
+      </p>
+    );
+  }
+const navigate = useNavigate();
   if (googleLoading || loading) {
     return <p>Loading--------</p> ;
   }
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
     toast( <p className='text-bold px-3 py-2 border-2 border-secondary text-black top-[30%] right-0'>SignUp Successfully</p> )
-    console.log(" done");
-    //   navigate ('/home')
+    reset();
+    // console.log(" done");
+      navigate ('/')
   };
  
   return (
@@ -138,6 +133,7 @@ const SignUpForm = () => {
                 </p>
               )}
             </div>
+            {loginError}
              <input
               type="submit"
               value="SignUp"

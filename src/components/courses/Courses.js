@@ -20,10 +20,6 @@ const Courses = () => {
     <>
     <section className="max-w-7xl mx-auto lg:px-16 px-5 md:px-10 my-20 pb-20">
 
-         {/* ...........courses heading............... */}
-
-        
-
          {/* ...........courses ............... */}
 
           <div className="courses">

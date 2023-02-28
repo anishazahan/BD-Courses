@@ -3,7 +3,6 @@ import { useContext, useReducer ,createContext, useEffect} from "react"
 import {AllReducer, initialState} from "./state/AllReducer"
 export const mainContext = createContext();
 
-const blogURL = "blog.json"
 const AllContext = ({children})=>{
   const [state, dispatch] = useReducer(AllReducer,initialState);
   // console.log(state);
@@ -77,7 +76,6 @@ const AllContext = ({children})=>{
       );
     
 }
-
 
 //    custom hook
 export const useAllContext = () => {

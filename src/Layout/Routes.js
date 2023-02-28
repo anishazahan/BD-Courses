@@ -9,6 +9,7 @@ import CourseDetails from "../components/courses/CourseDetails";
 import Login from "../Authentication/Login";
 import SignUP from "../Authentication/SignUP";
 import PrivateRoute from "../Authentication/PrivateRoute";
+import NotFound from "../shared/NotFound";
 
 
 export const router = createBrowserRouter([
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path:"/signUp",
                 element:<SignUP></SignUP>
+            },
+            {
+                path:"*",
+                element:<NotFound></NotFound>
             },
         ]
     }
