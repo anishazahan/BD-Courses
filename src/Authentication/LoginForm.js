@@ -35,7 +35,7 @@ const LoginForm = () => {
     .then(result=>{
       const user = result.user;
       // toast("Login successfully")
-      // console.log(user)
+      console.log(user)
       navigate(from,{replace:true});
     })
     .catch(error =>
